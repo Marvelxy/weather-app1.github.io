@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather Location Info </title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+ <div id="map"></div>
+
+
+<div class="location">
+	<h1 class="location-timezone">Timezone</h1>
+</div>
+
+	<div class="temperature">
+		<div class="degree-section">
+			<h2 class="temperature-degree">34</h2>
+			<span>F</span>
+		</div>
+		<div class="temperature-description">It's friggin cold</div>
+	</div>
+
+
+<script>
+	function initMap() {
+		var options = {
+			zoom:8,
+			center : {lat:4.9057, lng:7.8537}
+		}
+
+		var map = new google.maps.Map(document.getElementById('map'), options);
+
+		// add marker
+		var marker =new google.maps.Marker({
+			position:{lat:4.8074, lng:8.2377,},
+			map:map
+		})
+	}
+</script>
+<script src="app.js"></script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuhg2dmkaK68SIuqfRjLAUf6svxdASIuE&callback=initMap">
+
+    </script>
+</body>
+</html>
