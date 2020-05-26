@@ -12,19 +12,20 @@ window.addEventListener('load', ()=>{
  	if(navigator.geolocation){
  		navigator.geolocation.getCurrentPosition(position =>{
  			long = position.coords.longitude;
- 			lat= position.coords.latitude;
+ 			lat = position.coords.latitude;
  			
 
- 			const proxy = 'https://cors-anywhere.herokuapp.com/'
- 			const api = `${proxy}https://api.darksky.net/forecast/5e684b8febcb7a3e6e7e624a0d1eabda/${lat},${long}`;
+ 			//const proxy = 'https://cors-anywhere.herokuapp.com/'
+ 			//const api = `${proxy}https://api.darksky.net/forecast/5e684b8febcb7a3e6e7e624a0d1eabda/${lat},${long}`;
+ 			const api = 'https://ipapi.co/json/';
 
  			fetch(api)
- 			.then(response=>{
- 				return response.json();
+ 			.then(function(response){
+ 				return response.json()
  			})
- 			.then(data=>{
+ 			.then(function(data){
  				console.log(data)
- 				const {temperature, summary,} = data.currently;
+ 				const {temperature, summary} = data;
 
  				// fetch data from api to DOM element
  				temperature_degree.textContent =temperature;
